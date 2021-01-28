@@ -30,7 +30,7 @@ public class q2 {
     }
 
     public static void main(String[] args) {
-        System.out.println("\n결과 : "+solution(new int[]{2, 3, 6, 9, 12, 15, 10, 20, 22, 25}));
+        System.out.println("\n결과  : "+solution(new int[]{2, 3, 6, 9, 12, 15, 10, 20, 22, 25}));
     }
 }
 
