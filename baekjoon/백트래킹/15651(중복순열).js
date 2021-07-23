@@ -13,10 +13,23 @@ const handleInput = (line) => {
 const handleOutput = () => {
   const [N, M] = input[0].split(' ').map((x) => Number(x))
 
-  for (let i = 0; i < N; i++) {
-    for (let j = 0; j < M; j++) {}
-  }
+  const visited = new Array(N)
+  let output = []
+  let result = ''
 
+  const dfs = (cnt) => {
+    if (cnt === M) {
+      result += `${output.join(' ')}\n`
+      return
+    }
+    for (let i = 0; i < N; i++) {
+      output.push(i + 1)
+      dfs(cnt + 1)
+      output.pop()
+    }
+  }
+  dfs(0)
+  console.log(result.trim())
   process.exit()
 }
 
