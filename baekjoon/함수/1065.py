@@ -1,4 +1,3 @@
-
 def isHanSu(n):
   strN = str(n)
   if len(strN) == 1:
