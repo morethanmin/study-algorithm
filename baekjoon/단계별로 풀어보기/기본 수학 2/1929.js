@@ -9,24 +9,27 @@ let input = []
 rl.on('line', (line) => {
   input.push(line)
 }).on('close', () => {
-  const [M, N] = input[0].split(' ').map((i) => {
-    let num = parseInt(i)
-    num = num === 1 ? 2 : num
-    return num
-  })
-  let result = ''
-  for (let i = M; i <= N; i++) {
-    let isSosu = true
-    for (let j = 2; j <= Math.sqrt(i); j++) {
-      if (i % j === 0) {
-        isSosu = false
-        break
+  const [M, N] = input[0].split(' ').map(Number)
+  const isSosu = Array(N + 1).fill(true)
+  isSosu[1] = false
+
+  for (let n = 2; n <= Math.ceil(Math.sqrt(N)); n++) {
+    if (isSosu[n]) {
+      let m = 2
+      while (n * m <= N) {
+        isSosu[n * m] = false
+        m++
       }
     }
-    if (isSosu) {
-      result += `${i}\n`
+  }
+
+  const results = []
+  for (let n = M; n <= N; n++) {
+    if (isPrimeNumber[n]) {
+      results.push(n)
     }
   }
-  console.log(result)
+  console.log(results.join('\n'))
+
   process.exit()
 })
