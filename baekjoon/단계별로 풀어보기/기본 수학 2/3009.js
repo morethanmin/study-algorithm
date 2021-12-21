@@ -1,6 +1,3 @@
-//5 5
-//5 7
-//7 5
 const readline = require('readline')
 const rl = readline.createInterface({
   input: process.stdin,
