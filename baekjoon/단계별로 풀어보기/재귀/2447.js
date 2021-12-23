@@ -6,25 +6,30 @@ const rl = readline.createInterface({
 
 let input = []
 
-const rect = (n) => {
-  if (n === 3)
-    return `***
-* *
-***`
-  const o = rect(Math.sqrt(n))
-  return `${o}${o}${o}
-${o} ${o}
-${o}${o}${o}`
+const getStar = (x, y, n) => {
+  //n * n
+  if (x % 3 == 1 && y % 3 == 1) return ' '
+  else {
+    if (n === 1) {
+      return '*'
+    } else {
+      return getStar(parseInt(x / 3), parseInt(y / 3), parseInt(n / 3))
+    }
+  }
 }
 
-const handleInput = (line) => {
+rl.on('line', (line) => {
   input.push(line)
-}
-
-const handleOutput = () => {
-  const N = Number(input[0])
-  console.log(rect(N))
+}).on('close', () => {
+  const N = +input[0]
+  // console.log(getStar(N))
+  let result = ''
+  for (let x = 0; x < N; x++) {
+    for (let y = 0; y < N; y++) {
+      result += getStar(x, y, N)
+    }
+    result += `\n`
+  }
+  console.log(result)
   process.exit()
-}
-
-rl.on('line', handleInput).on('close', handleOutput)
+})
