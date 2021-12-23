@@ -6,20 +6,16 @@ const rl = readline.createInterface({
 
 let input = []
 
-const foo = (n) => {
-  if (n === 0) return 1
-  if (n === 1) return 1
-  else return n * foo(n - 1)
+const getFactorial = (N) => {
+  if (N < 2) return 1
+
+  return N * getFactorial(N - 1)
 }
 
-const handleInput = (line) => {
+rl.on('line', (line) => {
   input.push(line)
-}
-
-const handleOutput = () => {
-  const N = Number(input[0])
-  console.log(foo(N))
+}).on('close', () => {
+  const N = +input[0]
+  console.log(getFactorial(N))
   process.exit()
-}
-
-rl.on('line', handleInput).on('close', handleOutput)
+})
