@@ -6,21 +6,17 @@ const rl = readline.createInterface({
 
 let input = []
 
-const fibo = (n) => {
+const getPbonachi = (n) => {
   if (n === 0) return 0
   if (n === 1) return 1
-  return fibo(n - 1) + fibo(n - 2)
+
+  return getPbonachi(n - 1) + getPbonachi(n - 2)
 }
 
-const handleInput = (line) => {
+rl.on('line', (line) => {
   input.push(line)
-}
-
-const handleOutput = () => {
-  const N = Number(input[0])
-  console.log(fibo(N))
-
+}).on('close', () => {
+  const n = +input[0]
+  console.log(getPbonachi(n))
   process.exit()
-}
-
-rl.on('line', handleInput).on('close', handleOutput)
+})
