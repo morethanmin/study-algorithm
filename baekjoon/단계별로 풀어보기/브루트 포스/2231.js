@@ -6,27 +6,24 @@ const rl = readline.createInterface({
 
 let input = []
 
-const handleInput = (line) => {
+rl.on('line', (line) => {
   input.push(line)
-}
-
-const handleOutput = () => {
-  const N = input[0]
-  let gen = 0
-  for (let i = 1; i < N; i++) {
-    let sum = 0
-    let iString = i.toString()
-    for (let j = 0; j < iString.length; j++) {
-      sum += Number(iString[j])
+}).on('close', () => {
+  let N = +input[0]
+  let result = 0
+  for (let i = N - 1; i > 0; i--) {
+    let nums = []
+    let curVal = i
+    while (curVal !== 0) {
+      const nmg = curVal % 10
+      curVal = parseInt(curVal / 10)
+      nums.push(nmg)
     }
-    sum += i
-    if (sum === Number(N)) {
-      gen = i
-      break
+    if (N === i + nums.reduce((acc, cur) => acc + cur)) {
+      result = i
     }
   }
-  console.log(gen)
-  process.exit()
-}
+  console.log(result)
 
-rl.on('line', handleInput).on('close', handleOutput)
+  process.exit()
+})

@@ -6,26 +6,21 @@ const rl = readline.createInterface({
 
 let input = []
 
-const handleInput = (line) => {
+rl.on('line', (line) => {
   input.push(line)
-}
-
-const handleOutput = () => {
-  const [N, M] = input[0].split(' ').map((x) => Number(x))
-  const num = input[1].split(' ').map((x) => Number(x))
-  let max = 0
-  for (let x = 0; x < N - 2; x++) {
-    for (let y = x + 1; y < N - 1; y++) {
-      for (let z = y + 1; z < N; z++) {
-        let sum = num[x] + num[y] + num[z]
-        if (sum > max && sum <= M) {
-          max = sum
-        }
+  // N : 카드의 수, M : 목표 수
+}).on('close', () => {
+  const [N, M] = input[0].split(' ').map((i) => +i)
+  const cards = input[1].split(' ').map((i) => +i)
+  let result = 0
+  for (let i = 0; i < cards.length - 2; i++) {
+    for (let j = i + 1; j < cards.length - 1; j++) {
+      for (let k = j + 1; k < cards.length; k++) {
+        const sum = cards[i] + cards[j] + cards[k]
+        if (M - sum >= 0 && M - sum < M - result) result = sum
       }
     }
   }
-  console.log(max)
+  console.log(result)
   process.exit()
-}
-
-rl.on('line', handleInput).on('close', handleOutput)
+})

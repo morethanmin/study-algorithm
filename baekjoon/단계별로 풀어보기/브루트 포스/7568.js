@@ -6,26 +6,28 @@ const rl = readline.createInterface({
 
 let input = []
 
-const handleInput = (line) => {
+rl.on('line', (line) => {
   input.push(line)
-}
-
-const handleOutput = () => {
-  const N = Number(input[0])
-  let array = []
-  let rank = new Array(N).fill(1)
-  for (let i = 1; i <= N; i++) {
-    array.push(input[i].split(' ').map((x) => Number(x)))
+}).on('close', () => {
+  const T = +input[0]
+  const peoples = []
+  for (let i = 1; i <= T; i++) {
+    //x는 몸무게, y는 키
+    peoples.push(input[i].split(' ').map((i) => +i))
   }
-
-  for (let i = 0; i < N; i++) {
-    for (let j = 0; j < N - 1; j++) {
-      if (j === i) continue
-      if (array[i][0] < array[j][0] && array[i][1] < array[j][1]) rank[i]++
+  result = Array(T).fill(1)
+  for (i in peoples) {
+    //i번 째 사람의 등수를 구한다.
+    const [x, y] = peoples[i]
+    for (j in peoples) {
+      //자기자신과는 비교하지 않는다.
+      if (i === j) continue
+      const [p, q] = peoples[j]
+      if (p > x && q > y) {
+        result[i]++
+      }
     }
   }
-  console.log(rank.join(' '))
+  console.log(result.join(' '))
   process.exit()
-}
-
-rl.on('line', handleInput).on('close', handleOutput)
+})
