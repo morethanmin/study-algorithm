@@ -10,4 +10,4 @@ console.log(`before : ${array}`)
 array = mergeSort(array)
 console.log(`after : ${array}`)
 
-// export {}
+export {}

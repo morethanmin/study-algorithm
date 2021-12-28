@@ -13,10 +13,7 @@ const handleInput = (line) => {
 const handleOutput = () => {
   const N = Number(input[0])
   let user = []
-  for(let i = 1; i<=N; i++){
-    const [id, name] = 
-    user.push({id: })
-  }
+  for (let i = 1; i <= N; i++) {}
   process.exit()
 }
 
