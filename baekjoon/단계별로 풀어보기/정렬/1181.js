@@ -19,8 +19,6 @@ rl.on('line', (line) => {
     } else {
       return word.length - nextWord.length
     }
-
-
   })
 
   console.log(sortedArrays.join('\n'))
