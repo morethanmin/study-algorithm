@@ -35,6 +35,7 @@ rl.on('line', (line) => {
 
   //N에 해당하는 길이의 정수배열을 만들어준다.
   const array = [...Array(N + 1).keys()]
+  //index값이 순차적으로 들어가 있으므로, 0은 빼준다.
   array.shift()
 
   console.log(
