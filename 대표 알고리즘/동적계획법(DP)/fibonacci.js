@@ -10,34 +10,34 @@ let inputs = []
 const getFibonachiUsingRecursion = (n) => {
   if (n === 0) return 0
   if (n === 1) return 1
-
   return getPbonachi(n - 1) + getPbonachi(n - 2)
 }
 
-//피보나치는 첫째 및 둘째항은 1이고 그 뒤의 모든항은 바로앞 두항의 합인 수열을 의미한다.
-const getFibonacciUsingDP = (n) => {
-  if (n <= 1) return n
 
-}
 
 
 rl.on('line', (line) => {
   inputs.push(line)
 }).on('close', () => {
-  //N개중에서 M개로 조합을 구한다. nPr
+  // n번째의 피보나치 값을 가져오는 함수. 피보나치는 첫째 및 둘째항은 1이고 그 뒤의 모든항은 바로앞 두항의 합인 수열을 의미한다.
+  const getFibonacciUsingDP = (n) => {
+    // 0번째 1번째 피보나치 수
+    if (n <= 1) return n
+    // 메모가 있는지 확인한다.
+    if (memo[n] != 0) return memo[n]
+    memo[n] = getFibonacciUsingDP(n - 1) + getFibonacciUsingDP(n - 2)
+    return memo[n]
+  }
 
-  //N과 M을 가져온다.
-  const [N, M] = inputs[0].split(' ').map((i) => +i)
-
-  //N에 해당하는 길이의 정수배열을 만들어준다.
-  const array = [...Array(N + 1).keys()]
-  //index값이 순차적으로 들어가 있으므로, 0은 빼준다.
-  array.shift()
-  console.log(getPermutations(array, M));
-  // console.log(
-  //   getPermutations(array, M)
-  //     .map((val) => val.join(' '))
-  //     .join(`\n`)
-  // )
+  // N번째 피보나치 수를 구하기 위해 N을 가져온다.
+  const T = inputs.shift()
+  const arr = inputs.map((i) => +i)
+  const result = []
+  let memo
+  arr.forEach((val) => {
+    memo = Array(val + 1).fill(0)
+    result.push(getFibonacciUsingDP(val))
+  })
+  console.log(result);
   process.exit()
 })
