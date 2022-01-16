@@ -47,3 +47,5 @@ const insertionSort = (arr) => {
 console.log(bubbleSort(array))
 console.log(selectionSort(array))
 console.log(insertionSort(array))
+
+export {}

@@ -29,7 +29,7 @@ rl.on('line', (line) => {
       result.push(i + 1)
     }
   }
-  console.log(result.join('\n'))
+  console.log(result)
 
   process.exit()
 })
