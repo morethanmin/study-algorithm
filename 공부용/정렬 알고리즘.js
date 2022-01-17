@@ -1,4 +1,7 @@
-//정렬 알고리즘을 복습 - 1 이해하고 작성해보기
+/* 정렬 알고리즘을 복습 - 1 이해하고 작성해보기
+ * 2022-01-16 : ~countingSort
+ * 2022-01-17 : ~mergeSort
+ */
 
 let array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 
@@ -73,6 +76,33 @@ const countingSort = (array) => {
   return result
 }
 
+// 병합 정렬은 반으로쪼갤 수 있는 만큼 쪼갠 다음 가장 낮은 단위부터 정렬하는 방식이다.
+const mergeSort = (array) => {
+  const result = array.concat()
+  if (result.length < 2)
+    return result
+  const mid = Math.floor(result.length/2)
+  let lowArr = mergeSort(result.slice(0,mid))
+  let highArr = mergeSort(result.slice(mid))
+  
+  let mergedArr = []
+  let l = 0, h = 0
+  while(l < lowArr.length && h < highArr.length){
+    if(lowArr[l] < highArr[h]) {
+      mergedArr.push(lowArr[l])
+      l += 1
+    } else {
+      mergedArr.push(highArr[h])
+      h += 1
+    }
+  }
+  mergedArr = [...mergedArr,...lowArr.slice(l)]
+  mergedArr = [...mergedArr,...highArr.slice(h)]
+  // console.log(mergedArr);
+  return mergedArr
+}
+
+
 console.log(`-----bubbleSort-----`)
 console.log(`before : ${array}`)
 console.log(`after : ${bubbleSort(array)}`)
@@ -85,9 +115,9 @@ console.log(`after : ${insertionSort(array)}`)
 console.log(`-----countingSort-----`)
 console.log(`before : ${array}`)
 console.log(`after : ${countingSort(array)}`)
-// console.log(`-----mergeSort-----`)
-// console.log(`before : ${array}`)
-// console.log(`after : ${insertionSort(array)}`)
+console.log(`-----mergeSort-----`)
+console.log(`before : ${array}`)
+console.log(`after : ${mergeSort(array)}`)
 // console.log(`-----quickSort-----`)
 // console.log(`before : ${array}`)
 // console.log(`after : ${insertionSort(array)}`)
