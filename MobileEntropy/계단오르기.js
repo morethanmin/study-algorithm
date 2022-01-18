@@ -21,5 +21,8 @@ rl.on('line', (line) => {
 }).on('close', () => {
   const N = +inputs[0]
 
+  
+
+
   process.exit()
 })
