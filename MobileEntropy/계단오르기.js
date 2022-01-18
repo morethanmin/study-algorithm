@@ -16,13 +16,15 @@ const rl = readline.createInterface({
 
 let inputs = []
 
+const getAnswer = (n) => {
+  if (n === 0 ||n === 1) return 1
+  return getAnswer(n-1) + getAnswer(n-2)
+}
+
 rl.on('line', (line) => {
   inputs.push(line)
 }).on('close', () => {
   const N = +inputs[0]
-
-  
-
-
+  console.log(getAnswer(N));
   process.exit()
 })

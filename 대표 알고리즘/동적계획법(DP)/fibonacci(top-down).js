@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 let inputs = []
 
 // 피보나치는 첫째 및 둘째항은 1이고 그 뒤의 모든항은 바로앞 두항의 합인 수열을 의미한다.
-// 아래와 같이 재귀를 이용해서 쉽계구할 수 있지만 공간 복잡도가 증가함에 따라 동적계획법을 통해 구현해 볼 수 있다.
+// 아래와 같이 재귀를 이용해서 쉽게 구할 수 있지만 공간 복잡도가 증가함에 따라 동적계획법을 통해 구현해 볼 수 있다.
 const getFibonachiUsingRecursion = (n) => {
   if (n === 0) return 0
   if (n === 1) return 1
