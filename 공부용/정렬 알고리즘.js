@@ -1,10 +1,10 @@
-/* 정렬 알고리즘을 복습 - 1 이해하고 작성해보기
+/* 정렬 알고리즘을 복습
  * 2022-01-16 : ~countingSort
  * 2022-01-17 : ~mergeSort
  * 2022-01-18 : ~quickSort
  */
 
-let array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+let input = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 //버블 정렬은 인접한 두값을 순차적으로 비교하며 정렬하는 기법 O(n*n)
 const bubbleSort = (array) => {
@@ -123,20 +123,20 @@ const quickSort = (array) => {
 
 
 console.log(`-----bubbleSort-----`)
-console.log(`before : ${array}`)
-console.log(`after : ${bubbleSort(array)}`)
+console.log(`before : ${input}`)
+console.log(`after : ${bubbleSort(input)}`)
 console.log(`-----selectionSort-----`)
-console.log(`before : ${array}`)
-console.log(`after : ${selectionSort(array)}`)
+console.log(`before : ${input}`)
+console.log(`after : ${selectionSort(input)}`)
 console.log(`-----insertionSort-----`)
-console.log(`before : ${array}`)
-console.log(`after : ${insertionSort(array)}`)
+console.log(`before : ${input}`)
+console.log(`after : ${insertionSort(input)}`)
 console.log(`-----countingSort-----`)
-console.log(`before : ${array}`)
-console.log(`after : ${countingSort(array)}`)
+console.log(`before : ${input}`)
+console.log(`after : ${countingSort(input)}`)
 console.log(`-----mergeSort-----`)
-console.log(`before : ${array}`)
-console.log(`after : ${mergeSort(array)}`)
+console.log(`before : ${input}`)
+console.log(`after : ${mergeSort(input)}`)
 console.log(`-----quickSort-----`)
-console.log(`before : ${array}`)
-console.log(`after : ${quickSort(array)}`)
+console.log(`before : ${input}`)
+console.log(`after : ${quickSort(input)}`)
