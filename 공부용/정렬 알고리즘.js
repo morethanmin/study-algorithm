@@ -1,6 +1,7 @@
 /* 정렬 알고리즘을 복습 - 1 이해하고 작성해보기
  * 2022-01-16 : ~countingSort
  * 2022-01-17 : ~mergeSort
+ * 2022-01-18 : ~quickSort
  */
 
 let array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
@@ -76,7 +77,7 @@ const countingSort = (array) => {
   return result
 }
 
-// 병합 정렬은 반으로쪼갤 수 있는 만큼 쪼갠 다음 가장 낮은 단위부터 정렬하는 방식이다.
+// 병합 정렬은 반으로쪼갤 수 있는 만큼 쪼개 다음 가장 낮은 단위부터 정렬하는 분할 정복 방식의 정렬이다. O(nlogn)
 const mergeSort = (array) => {
   const result = array.concat()
   if (result.length < 2)
@@ -86,7 +87,7 @@ const mergeSort = (array) => {
   let highArr = mergeSort(result.slice(mid))
   
   let mergedArr = []
-  let l = 0, h = 0
+  let l = h = 0
   while(l < lowArr.length && h < highArr.length){
     if(lowArr[l] < highArr[h]) {
       mergedArr.push(lowArr[l])
@@ -100,6 +101,24 @@ const mergeSort = (array) => {
   mergedArr = [...mergedArr,...highArr.slice(h)]
   // console.log(mergedArr);
   return mergedArr
+}
+
+// 퀵 정렬도 병합 정렬과 마찬가지로 분할정복 알고리즘을 사용하지만, Pivot을 설정하고 그 값을 기준으로 정렬한다. O(nlogn)
+const quickSort = (array) => {
+  const result = array.concat()
+  if (result.length <2) return result
+  const pivot = result[0]
+  const left = []
+  const right = []
+  //pivot을 제외한 값들을 pivot을 기준으로 정렬
+  for(let i=1; i<result.length; i++){
+    if(result[i] <= pivot) left.push(result[i])
+    else right.push(result[i])
+  }
+
+  const lSorted = quickSort(left)
+  const rSorted = quickSort(right)
+  return [...lSorted,pivot,...rSorted]
 }
 
 
@@ -118,6 +137,6 @@ console.log(`after : ${countingSort(array)}`)
 console.log(`-----mergeSort-----`)
 console.log(`before : ${array}`)
 console.log(`after : ${mergeSort(array)}`)
-// console.log(`-----quickSort-----`)
-// console.log(`before : ${array}`)
-// console.log(`after : ${insertionSort(array)}`)
+console.log(`-----quickSort-----`)
+console.log(`before : ${array}`)
+console.log(`after : ${quickSort(array)}`)

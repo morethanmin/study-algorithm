@@ -1,32 +1,20 @@
-function quickSort(array, left = 0, right = array.length - 1) {
-  if (left >= right) {
-    return
+array = [9,8,7,6,5,4,3,2,1]
+
+const quickSort = function (arr) {
+  if (arr.length <= 1) return arr;
+
+  const pivot = arr[0];
+  const left = [];
+  const right = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] <= pivot) left.push(arr[i]);
+    else right.push(arr[i]);
   }
-  const mid = Math.floor((left + right) / 2)
-  const pivot = array[mid]
-  const partition = divide(array, left, right, pivot)
-  quickSort(array, left, partition - 1)
-  quickSort(array, partition, right)
-  function divide(array, left, right, pivot) {
-    console.log(
-      `array: ${array}, left: ${array[left]}, pivot: ${pivot}, right: ${array[right]}`
-    )
-    while (left <= right) {
-      while (array[left] < pivot) {
-        left++
-      }
-      while (array[right] > pivot) {
-        right--
-      }
-      if (left <= right) {
-        let swap = array[left]
-        array[left] = array[right]
-        array[right] = swap
-        left++
-        right--
-      }
-    }
-    return left
-  }
-  return array
-}
+
+  const lSorted = quickSort(left);
+  const rSorted = quickSort(right);
+  return [...lSorted, pivot, ...rSorted];
+};
+
+  console.log(quickSort(array));
