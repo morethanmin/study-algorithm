@@ -1,6 +1,6 @@
 # 뇌손실 방지를 위한 1일 1 알고리즘
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 본 저장소는 알고리즘 공부한 것을 올려두는 저장소입니다.
@@ -21,6 +21,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Octoping925"><img src="https://avatars.githubusercontent.com/u/53991994?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Octoping</b></sub></a><br /><a href="https://github.com/morethanmin/study-algorithm/commits?author=Octoping925" title="Code">💻</a></td>
+    <td align="center"><a href="http://nahwasa.com"><img src="https://avatars.githubusercontent.com/u/49299283?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Se-young Hwang</b></sub></a><br /><a href="https://github.com/morethanmin/study-algorithm/commits?author=NaHwaSa" title="Code">💻</a></td>
   </tr>
 </table>
 
