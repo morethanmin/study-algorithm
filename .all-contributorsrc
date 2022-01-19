@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Octoping925",
+      "name": "Octoping",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53991994?v=4",
+      "profile": "https://github.com/Octoping925",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "study-algorithm",
+  "projectOwner": "morethanmin",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
