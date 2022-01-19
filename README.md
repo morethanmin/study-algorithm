@@ -11,10 +11,6 @@
 
 잘못된 문제풀이는 이슈로 등록 부탁드립니다.
 
-## 기여자
-
-저에게 문제를 내주신분들은 아래에서 확인하실 수 있습니다.
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
