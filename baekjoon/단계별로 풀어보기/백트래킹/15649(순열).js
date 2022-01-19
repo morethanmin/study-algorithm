@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 let inputs = []
 
-//순열은 반대로 조합과는 관계없이 지정된 개수만큼 순서에 맞게 배열하는 것이다.
+//순열은 지정된 개수만큼 순서에 맞게 배열하는 것이다.
 const getPermutations = (arr, selectNumber) => {
   const results = []
 
