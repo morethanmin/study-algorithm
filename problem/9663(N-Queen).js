@@ -31,8 +31,6 @@ const solution = (N) => {
   }
 
   const queen = (y) => {
-    console.log(`queen 실행. 인자는 ${y}`);
-    
     //유망한지 확인
     if (isPromising(y)) {
       //마지막 y값 까지 온 경우 count를 더해준다.

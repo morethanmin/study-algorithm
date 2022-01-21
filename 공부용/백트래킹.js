@@ -31,6 +31,12 @@ const getPermutations = (arr, selectNumber) => {
   return result
 }
 
+//N*N 크기의 판에 N개의 퀸을 놓는 경우의 수를 구한다.
+const nQueen = (N)=> {
+
+
+}
+
 console.log(`-----getCombinations(4,3)-----`)
 console.log(getCombinations([1,2,3,4],3))
 console.log(`-----getPermutations(4,3)-----`)

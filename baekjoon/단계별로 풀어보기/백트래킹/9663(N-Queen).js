@@ -31,8 +31,6 @@ const solution = (N) => {
   }
 
   const queen = (y) => {
-    console.log(`queen 실행. 인자는 ${y}`);
-    
     //유망한지 확인
     if (isPromising(y)) {
       //마지막 y값 까지 온 경우 count를 더해준다.
@@ -42,7 +40,7 @@ const solution = (N) => {
 
         //마지막 y값이 아닌 경우에는 다음 y값에 대해서 확인해야한다.
       } else {
-        
+
         //해당 y열 다음 열에 대해서 x값을 순차적으로 넣어주고 해당 값이 유망한지 확인한다.
         for (let x = 1; x <= N; x++) {
           board[y + 1] = x
