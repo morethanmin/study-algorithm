@@ -13,19 +13,16 @@
  let inputs = []
 
  const getResult = (n,k,arr) => {
-
+  
  }
  
  rl.on('line',(line)=>{
    inputs.push(line)
  }).on('close',()=>{
-   //N(물품 수) K(최대 무게)
+  //N(물품 수) K(최대 무게)
    const [N, K] = inputs.shift().split(' ').map((el)=>+el)
-   // console.log(N,K);
-   //W(무게) V(가치)
-   inputs.forEach((val, idx, arr)=>{
-     console.log(val);
-
-   })
+  // console.log(N,K);
+  //W(무게) V(가치)
+  console.log(getResult(N,K,inputs));
    process.exit()
  })
