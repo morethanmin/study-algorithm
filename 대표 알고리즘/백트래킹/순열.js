@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 let inputs = []
 
-//순열은 반대로 조합과는 관계없이 지정된 개수만큼 순서에 맞게 배열하는 것이다.
+//순열은 지정된 개수만큼 순서에 맞게 배열하는 것이다.
 const getPermutations = (arr, selectNumber) => {
   const results = []
 
@@ -29,7 +29,7 @@ const getPermutations = (arr, selectNumber) => {
 rl.on('line', (line) => {
   inputs.push(line)
 }).on('close', () => {
-  //N개중에서 M개로 조합을 구한다. nPr
+  //n개중에서 m개로 순열을 구한다. nPr
 
   //N과 M을 가져온다.
   const [N, M] = inputs[0].split(' ').map((i) => +i)

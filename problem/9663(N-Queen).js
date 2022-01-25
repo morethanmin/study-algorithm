@@ -35,7 +35,7 @@ const solution = (N) => {
     if (isPromising(y)) {
       //마지막 y값 까지 온 경우 count를 더해준다.
       if (y === N) {
-        console.log(board);
+        // console.log(board);
         count++
 
         //마지막 y값이 아닌 경우에는 다음 y값에 대해서 확인해야한다.
