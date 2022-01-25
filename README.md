@@ -19,6 +19,10 @@
 
 양식은 양심껏 맞춰서 해주세요.
 
+### 이슈 올리기
+
+잘못된 문제풀이나 오타가 있으면 이슈를 등록해주세요.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
