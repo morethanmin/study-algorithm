@@ -12,17 +12,17 @@ const solution = (N) => {
   let count = 0
 
   //n의 크기의 보드판을 만든다.
-  //board의 index에는 보드판의 y값, index의 value 퀸이 놓이는 위치. 즉, x값이다. 편의를 위해 1부터 시작하도록 설정해두었다.
+  //board의 index에는 보드판의 y값, index의 value는 퀸이 놓이는 위치. 즉, x값이다. 편의를 위해 1부터 시작하도록 설정해두었다.
   const board = new Array(N + 1).fill(0).map((el) => 0)
 
   //해당 열이 유망한지 판단하는 함수.
-  const isPromising = (y) => {
-    for (let x = 1; x < y; x++) {
+  const isPromising = (Y) => {
+    for (let y = 1; y < Y; y++) {
       if (
         // 일직선상에 위치해있는 경우
-        board[x] === board[y] ||
+        board[y] === board[Y] ||
         //대각선에 위치해있는 경우
-        Math.abs(board[y] - board[x]) === y - x
+        Math.abs(board[Y] - board[y]) === Y - y
       ) {
         return false
       }
