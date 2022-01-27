@@ -37,7 +37,7 @@ const solution = (nums, operators) => {
           else if (order[i] === 2)
             calVal *= nums[i]
           else if (order[i] === 3) {
-            const nngVal = Math.floor(+calVal / +nums[i])
+            const nngVal = Math.floor(Math.abs(calVal) / Math.abs(nums[i]))
             if ((calVal > 0 && nums[i] > 0) || (calVal < 0 && nums[i] < 0)) calVal = nngVal
             else calVal = -nngVal
           }
