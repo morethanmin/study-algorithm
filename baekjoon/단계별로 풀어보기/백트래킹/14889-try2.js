@@ -17,7 +17,7 @@ const solution = (arr) => {
 
   function dfs(count, start) {
     if (count === N / 2) {
-      LINK_TEAM = remainPeople(people, START_TEAM)
+      LINK_TEAM = getRemainPeople(people, START_TEAM)
       const START_TEAM_POINT = calcTeamPoint(arr, START_TEAM)
       const LINK_TEAM_POINT = calcTeamPoint(arr, LINK_TEAM)
       min = min > Math.abs(START_TEAM_POINT - LINK_TEAM_POINT) ? Math.abs(START_TEAM_POINT - LINK_TEAM_POINT) : min;
@@ -32,7 +32,7 @@ const solution = (arr) => {
       visited[i] = false
     }
   }
-  function remainPeople(people, team) {
+  function getRemainPeople(people, team) {
     let result = [];
     for (let i = 0; i < people.length; i++) {
       if (!team.includes(people[i])) result.push(people[i])
