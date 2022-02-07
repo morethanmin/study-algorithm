@@ -6,31 +6,32 @@ const rl = readline.createInterface({
 
 let inputs = []
 
-//순열은 지정된 개수만큼 순서에 맞게 배열하는 것이다.
-const getPermutations = (arr, selectNumber) => {
-  const results = []
+const getPermutations = (arr, N) => {
+  const result = []
+  const answer = []
+  let visited = new Array(arr.length).fill(false)
 
-  // n개 중에서 1개 선택하는 경우(nP1), 모든 배열의 원소를 return 한다.
-  if (selectNumber === 1) return arr.map((el) => [el])
-
-  arr.forEach((fixed, index, origin) => {
-    // 해당하는 fixed(value)만 제외한 값을 구한다.
-    const rest = [...origin.slice(0, index), ...origin.slice(index + 1)]
-    // 나머지 값들에 대한 순열을 구한다.
-    const permutations = getPermutations(rest, selectNumber - 1)
-    // 돌아온 결과값에 붙이기
-    const attached = permutations.map((el) => [fixed, ...el])
-    // 결과값을 spread syntax로 모두 push 한다.
-    results.push(...attached)
-  })
-  return results
+  function dfs(n) {
+    if (n === N) {
+      result.push([...answer])
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        if (visited[i] === true) continue;
+        visited[i] = true
+        answer.push(arr[i])
+        dfs(n + 1)
+        answer.pop()
+        visited[i] = false
+      }
+    }
+  }
+  dfs(0)
+  return result
 }
 
 rl.on('line', (line) => {
   inputs.push(line)
 }).on('close', () => {
-  //n개중에서 m개로 순열을 구한다. nPr
-
   //N과 M을 가져온다.
   const [N, M] = inputs[0].split(' ').map((i) => +i)
 
@@ -38,8 +39,7 @@ rl.on('line', (line) => {
   const array = [...Array(N + 1).keys()]
   //index값이 순차적으로 들어가 있으므로, 0은 빼준다.
   array.shift()
-  //console.log(array);
-  //console.log(getPermutations(array, M));
+
   console.log(
     getPermutations(array, M)
       .map((val) => val.join(' '))
