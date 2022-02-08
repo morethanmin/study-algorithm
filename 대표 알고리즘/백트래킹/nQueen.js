@@ -1,10 +1,4 @@
-/**
- * 
- */
-
-// n queen n * n 체스판에서 n개의 퀸을 놓을 수 있는 경우의 수
-
-const nQueenSolution = (N) => {
+const nQueen = (N) => {
   const board = new Array(N + 1).fill(0)
   let count = 0
 
@@ -39,4 +33,4 @@ const nQueenSolution = (N) => {
   return count
 }
 console.log('nQueen(8)');
-console.log(nQueenSolution(8));
+console.log(nQueen(8));
