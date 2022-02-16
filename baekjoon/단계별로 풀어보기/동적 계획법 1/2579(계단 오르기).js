@@ -2,22 +2,19 @@ const fs = require('fs')
 const readFileSyncAddress = '/dev/stdin'
 const input = fs.readFileSync(readFileSyncAddress).toString().trim().split('\n')
 
-const N = input.shift()
+const N = Number(input.shift())
 const scores = input.map(el => Number(el))
 console.log(solution(scores, N))
 
 function solution(scores, N) {
-  for (let i = 0; i < scores.length; i++) {
-    //세칸 이동가능한 경우
-    if (scores[i + 3]) {
-      i = i + 3
-      //두계단 이동후 한칸이동하는 경우 한계단 이동우 두칸이동하는 경우 중 큰 값을 선택한다.
-      scores[i] = Math.max(scores[i - 2] + scores[i - 3], scores[i - 1] + scores[i - 3]) + scores[i]
-    } 
-    //두칸 또는 한칸만 이동가능한 경우에는 무조건 한칸 이동
-    else {
-      scores[i] = scores[i - 1] + scores[i]
-    }
+  const memo = new Array(N).fill(0)
+  memo[0] = scores[0]
+  //한칸씩가는 경우, 두칸가는 경우
+  memo[1] = Math.max(scores[0] + scores[1], scores[1])
+  //한칸 두칸인경우, 두칸 한칸인 경우
+  memo[2] = Math.max(scores[0] + scores[2], scores[1] + scores[2])
+  for (let i = 3; i < N; i++) {
+    memo[i] = Math.max(scores[i] + scores[i - 1] + memo[i - 3], scores[i] + memo[i - 2])
   }
-  return scores[N - 1]
+  return memo[N - 1]
 }
