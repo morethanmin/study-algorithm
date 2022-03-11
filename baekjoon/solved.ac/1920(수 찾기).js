@@ -1,18 +1,26 @@
-const fs = require('fs')
-const readFileSyncAddress = '/dev/stdin'
-const input = fs.readFileSync(readFileSyncAddress).toString().trim().split('\n')
-const A = input[1].split(' ').map(el => Number(el))
-const B = input[3].split(' ').map(el => Number(el))
-const result = new Array()
-for (let i = 0; i < B.length; i++) {
-  let isExist = 0;
-  for (let j = 0; j < A.length; j++) {
-    if (B[i] === A[j]) {
-      isExist = 1
-      break
-    }
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+
+const [N, A, M, B] = input.map(v => v.split(" ").map(x => Number(x)));
+
+A.sort((a, b) => a - b);
+
+// 이분 탐색
+const binarySearch = (list, target, left, right, mid) => {
+  mid = Math.floor((left + right) / 2);
+
+  if (right < left) {
+    return list[mid] == target ? 1 : 0;
   }
-  result.push(isExist);
+
+  if (list[mid] > target) {
+    right = mid - 1;
+  } else {
+    left = mid + 1;
+  }
+
+  return binarySearch(list, target, left, right, mid);
 }
 
-console.log(result.join('\n'));
+const result = B.map(v => binarySearch(A, v, 0, A.length - 1, 0));
+
+console.log(result.join("\n"));
