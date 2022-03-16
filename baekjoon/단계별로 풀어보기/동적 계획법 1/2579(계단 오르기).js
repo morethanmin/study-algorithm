@@ -23,9 +23,11 @@ function solution(scores, N) {
   )
 
   for (let i = 3; i < N; i++) {
-    //i째칸가는경우 최대값, i칸 i-1칸 i-3최대값 or i칸 i-2최대값
     memo[i] = Math.max(
+      //마지막 계단 전의 계단을 밟은 경우.
       scores[i] + scores[i - 1] + memo[i - 3],
+
+      //마지막 계단 전의 계단을 밟지 않은 경우.
       scores[i] + memo[i - 2]
     )
   }
